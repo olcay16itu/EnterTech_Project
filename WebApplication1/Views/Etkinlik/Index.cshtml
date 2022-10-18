@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Project_Model.Etkinlik>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Index";
+    Layout = "_Layout";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.EtkinlikAdi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EtkinlikYeri)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EtkinlikKisiLimiti)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EtkinlikTarihi)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IsTicket)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikAdi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikYeri)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikKisiLimiti)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EtkinlikTarihi)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTicket)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EtkinlikID">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.EtkinlikID">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.EtkinlikID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

@@ -1,0 +1,55 @@
+﻿@model Project_Model.Etkinlik
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Edit";
+    Layout = "_Layout";
+}
+
+<h1>Edit</h1>
+
+<h4>Etkinlik</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Edit">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="EtkinlikID" />
+            <div class="form-group">
+                <label asp-for="EtkinlikAdi" class="control-label"></label>
+                <input asp-for="EtkinlikAdi" class="form-control" />
+                <span asp-validation-for="EtkinlikAdi" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EtkinlikYeri" class="control-label"></label>
+                <input asp-for="EtkinlikYeri" class="form-control" />
+                <span asp-validation-for="EtkinlikYeri" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EtkinlikKisiLimiti" class="control-label"></label>
+                <input asp-for="EtkinlikKisiLimiti" class="form-control" />
+                <span asp-validation-for="EtkinlikKisiLimiti" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="EtkinlikTarihi" class="control-label"></label>
+                <input asp-for="EtkinlikTarihi" class="form-control" />
+                <span asp-validation-for="EtkinlikTarihi" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsTicket" /> @Html.DisplayNameFor(model => model.IsTicket)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
